@@ -166,8 +166,28 @@ class _InputState extends State<Input> {
                     padding: buttonPadding,
                   ),
                 Expanded(
-                  child: Padding(
-                    padding: textPadding,
+                  child: Container(
+                    height: 40,
+                    margin: EdgeInsets.only(
+                      right: 16,
+                      top: 12,
+                      bottom: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      color: InheritedChatTheme.of(context)
+                          .theme
+                          .inputTextFieldBGColor,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          InheritedChatTheme.of(context)
+                              .theme
+                              .inputFieldBorderRadius,
+                        ),
+                      ),
+                    ),
+                    padding: InheritedChatTheme.of(context)
+                        .theme
+                        .inputTextFieldPadding,
                     child: TextField(
                       enabled: widget.options.enabled,
                       autocorrect: widget.options.autocorrect,
@@ -187,11 +207,21 @@ class _InputState extends State<Input> {
                                 .copyWith(
                                   color: InheritedChatTheme.of(context)
                                       .theme
-                                      .inputTextColor
-                                      .withOpacity(0.5),
+                                      .msgPlaceholderTextColor,
                                 ),
                             hintText:
                                 InheritedL10n.of(context).l10n.inputPlaceholder,
+                            suffixIcon: InheritedChatTheme.of(context)
+                                    .theme
+                                    .showSendButtonAsSuffixIcon
+                                ? Visibility(
+                                    visible: _sendButtonVisible,
+                                    child: SendButton(
+                                      onPressed: _handleSendPressed,
+                                      padding: EdgeInsets.zero,
+                                    ),
+                                  )
+                                : SizedBox.shrink(),
                           ),
                       focusNode: _inputFocusNode,
                       keyboardType: widget.options.keyboardType,
@@ -211,18 +241,24 @@ class _InputState extends State<Input> {
                     ),
                   ),
                 ),
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: buttonPadding.bottom + buttonPadding.top + 24,
-                  ),
-                  child: Visibility(
-                    visible: _sendButtonVisible,
-                    child: SendButton(
-                      onPressed: _handleSendPressed,
-                      padding: buttonPadding,
-                    ),
-                  ),
-                ),
+                InheritedChatTheme.of(context)
+                            .theme
+                            .showSendButtonAsSuffixIcon ==
+                        false
+                    ? ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight:
+                              buttonPadding.bottom + buttonPadding.top + 24,
+                        ),
+                        child: Visibility(
+                          visible: _sendButtonVisible,
+                          child: SendButton(
+                            onPressed: _handleSendPressed,
+                            padding: buttonPadding,
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink(),
               ],
             ),
           ),

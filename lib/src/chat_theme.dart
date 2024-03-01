@@ -73,6 +73,10 @@ abstract class ChatTheme {
     this.inputContainerDecoration,
     required this.inputMargin,
     required this.inputPadding,
+    required this.inputTextFieldPadding,
+    required this.attachmentBorderRadius,
+    required this.inputFieldBorderRadius,
+    required this.showSendButtonAsSuffixIcon,
     required this.inputTextColor,
     this.inputTextCursorColor,
     required this.inputTextDecoration,
@@ -91,6 +95,8 @@ abstract class ChatTheme {
     required this.receivedMessageDocumentIconColor,
     required this.receivedMessageLinkDescriptionTextStyle,
     required this.receivedMessageLinkTitleTextStyle,
+    required this.msgPlaceholderTextColor,
+    required this.inputTextFieldBGColor,
     required this.secondaryColor,
     required this.seenIcon,
     required this.sendButtonIcon,
@@ -134,6 +140,10 @@ abstract class ChatTheme {
   /// Icon for message's `delivered` status. For the best look use size of 16.
   final Widget? deliveredIcon;
 
+  final Color? msgPlaceholderTextColor;
+
+  final Color? inputTextFieldBGColor;
+
   /// Icon inside file message.
   final Widget? documentIcon;
 
@@ -165,6 +175,14 @@ abstract class ChatTheme {
 
   /// Inner insets of the bottom bar where text field is.
   final EdgeInsets inputPadding;
+
+  final EdgeInsets inputTextFieldPadding;
+
+  final double attachmentBorderRadius;
+
+  final double inputFieldBorderRadius;
+
+  final bool showSendButtonAsSuffixIcon;
 
   /// Color of the text field's text and attachment/send buttons.
   final Color inputTextColor;
@@ -316,6 +334,8 @@ class DefaultChatTheme extends ChatTheme {
     super.attachmentButtonIcon,
     super.attachmentButtonMargin,
     super.backgroundColor = neutral7,
+    super.msgPlaceholderTextColor = Colors.black,
+    super.inputTextFieldBGColor = Colors.white,
     super.dateDividerMargin = const EdgeInsets.only(
       bottom: 32,
       top: 16,
@@ -345,6 +365,10 @@ class DefaultChatTheme extends ChatTheme {
     super.inputContainerDecoration,
     super.inputMargin = EdgeInsets.zero,
     super.inputPadding = const EdgeInsets.fromLTRB(24, 20, 24, 20),
+    super.inputTextFieldPadding = const EdgeInsets.all(10),
+    super.attachmentBorderRadius = 8,
+    super.inputFieldBorderRadius = 8,
+    super.showSendButtonAsSuffixIcon = false,
     super.inputTextColor = neutral7,
     super.inputTextCursorColor,
     super.inputTextDecoration = const InputDecoration(
@@ -518,6 +542,10 @@ class DarkChatTheme extends ChatTheme {
     super.inputContainerDecoration,
     super.inputMargin = EdgeInsets.zero,
     super.inputPadding = const EdgeInsets.fromLTRB(24, 20, 24, 20),
+    super.inputTextFieldPadding = const EdgeInsets.all(10),
+    super.attachmentBorderRadius = 8,
+    super.inputFieldBorderRadius = 8,
+    super.showSendButtonAsSuffixIcon = false,
     super.inputTextColor = neutral7,
     super.inputTextCursorColor,
     super.inputTextDecoration = const InputDecoration(
@@ -565,6 +593,8 @@ class DarkChatTheme extends ChatTheme {
       height: 1.375,
     ),
     super.secondaryColor = secondaryDark,
+    super.msgPlaceholderTextColor = Colors.black,
+    super.inputTextFieldBGColor = Colors.white,
     super.seenIcon,
     super.sendButtonIcon,
     super.sendButtonMargin,
