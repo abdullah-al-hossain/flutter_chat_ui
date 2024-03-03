@@ -129,7 +129,7 @@ class _InputState extends State<Input> {
             query.viewInsets.bottom + query.padding.bottom,
           )
         : EdgeInsets.zero;
-    final textPadding = InheritedChatTheme.of(context)
+    InheritedChatTheme.of(context)
         .theme
         .inputPadding
         .copyWith(left: 0, right: 0)
@@ -168,7 +168,7 @@ class _InputState extends State<Input> {
                 Expanded(
                   child: Container(
                     height: 40,
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       right: 16,
                       top: 12,
                       bottom: 12,
@@ -221,7 +221,7 @@ class _InputState extends State<Input> {
                                       padding: EdgeInsets.zero,
                                     ),
                                   )
-                                : SizedBox.shrink(),
+                                : const SizedBox.shrink(),
                           ),
                       focusNode: _inputFocusNode,
                       keyboardType: widget.options.keyboardType,
@@ -241,10 +241,7 @@ class _InputState extends State<Input> {
                     ),
                   ),
                 ),
-                InheritedChatTheme.of(context)
-                            .theme
-                            .showSendButtonAsSuffixIcon ==
-                        false
+                !InheritedChatTheme.of(context).theme.showSendButtonAsSuffixIcon
                     ? ConstrainedBox(
                         constraints: BoxConstraints(
                           minHeight:
@@ -258,7 +255,7 @@ class _InputState extends State<Input> {
                           ),
                         ),
                       )
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

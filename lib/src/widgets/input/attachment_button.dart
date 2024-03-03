@@ -28,14 +28,14 @@ class AttachmentButton extends StatelessWidget {
             const EdgeInsets.all(8),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xfff5f6f8),
+            color: const Color(0xfff5f6f8),
             borderRadius: BorderRadius.all(
               Radius.circular(
                 InheritedChatTheme.of(context).theme.attachmentBorderRadius,
               ),
             ),
           ),
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           height: 40,
           width: 40,
           child: IconButton(
