@@ -308,7 +308,6 @@ class SGTextStyles {
   static TextStyle get body2 => pro14;
   static TextStyle get more1 => pro12;
   static TextStyle get more2 => pro10;
-  static TextStyle get more3 => pro10w500;
 
   // Defined Text Styles.
   static TextStyle get display48 => const TextStyle(
@@ -349,11 +348,6 @@ class SGTextStyles {
         fontSize: 16,
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w800,
-      );
-  static TextStyle get pro10w500 => const TextStyle(
-        fontSize: 10,
-        fontFamily: 'SFProText',
-        fontWeight: FontWeight.w500,
       );
 
   static TextStyle get pro16 => const TextStyle(
