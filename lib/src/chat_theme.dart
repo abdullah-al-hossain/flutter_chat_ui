@@ -97,6 +97,7 @@ abstract class ChatTheme {
     required this.receivedMessageLinkTitleTextStyle,
     required this.msgPlaceholderTextColor,
     required this.inputTextFieldBGColor,
+    required this.inputFieldMinHeight,
     required this.secondaryColor,
     required this.seenIcon,
     required this.sendButtonIcon,
@@ -143,6 +144,8 @@ abstract class ChatTheme {
   final Color? msgPlaceholderTextColor;
 
   final Color? inputTextFieldBGColor;
+
+  final double? inputFieldMinHeight;
 
   /// Icon inside file message.
   final Widget? documentIcon;
@@ -336,6 +339,7 @@ class DefaultChatTheme extends ChatTheme {
     super.backgroundColor = neutral7,
     super.msgPlaceholderTextColor = Colors.black,
     super.inputTextFieldBGColor = Colors.white,
+    super.inputFieldMinHeight = 40,
     super.dateDividerMargin = const EdgeInsets.only(
       bottom: 32,
       top: 16,
@@ -595,6 +599,7 @@ class DarkChatTheme extends ChatTheme {
     super.secondaryColor = secondaryDark,
     super.msgPlaceholderTextColor = Colors.black,
     super.inputTextFieldBGColor = Colors.white,
+    super.inputFieldMinHeight = 40,
     super.seenIcon,
     super.sendButtonIcon,
     super.sendButtonMargin,

@@ -167,7 +167,12 @@ class _InputState extends State<Input> {
                   ),
                 Expanded(
                   child: Container(
-                    height: 40,
+                    constraints: BoxConstraints(
+                      minHeight: InheritedChatTheme.of(context)
+                              .theme
+                              .inputFieldMinHeight ??
+                          40,
+                    ),
                     margin: const EdgeInsets.only(
                       right: 16,
                       top: 12,
