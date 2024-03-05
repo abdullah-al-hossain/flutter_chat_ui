@@ -129,7 +129,7 @@ class _InputState extends State<Input> {
             query.viewInsets.bottom + query.padding.bottom,
           )
         : EdgeInsets.zero;
-    InheritedChatTheme.of(context)
+    final textPadding = InheritedChatTheme.of(context)
         .theme
         .inputPadding
         .copyWith(left: 0, right: 0)
@@ -167,12 +167,6 @@ class _InputState extends State<Input> {
                   ),
                 Expanded(
                   child: Container(
-                    constraints: BoxConstraints(
-                      minHeight: InheritedChatTheme.of(context)
-                              .theme
-                              .inputFieldMinHeight ??
-                          40,
-                    ),
                     margin: const EdgeInsets.only(
                       right: 16,
                       top: 12,
@@ -216,6 +210,10 @@ class _InputState extends State<Input> {
                                 ),
                             hintText:
                                 InheritedL10n.of(context).l10n.inputPlaceholder,
+                            suffixIconConstraints: const BoxConstraints(
+                              maxHeight: 24,
+                              maxWidth: 24,
+                            ),
                             suffixIcon: InheritedChatTheme.of(context)
                                     .theme
                                     .showSendButtonAsSuffixIcon
@@ -223,7 +221,7 @@ class _InputState extends State<Input> {
                                     visible: _sendButtonVisible,
                                     child: SendButton(
                                       onPressed: _handleSendPressed,
-                                      padding: EdgeInsets.zero,
+                                      // padding: EdgeInsets.zero,
                                     ),
                                   )
                                 : const SizedBox.shrink(),
