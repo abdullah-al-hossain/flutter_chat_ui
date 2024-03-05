@@ -167,8 +167,7 @@ class _InputState extends State<Input> {
                   ),
                 Expanded(
                   child: Container(
-                    height: 40,
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       right: 16,
                       top: 12,
                       bottom: 12,
@@ -211,17 +210,21 @@ class _InputState extends State<Input> {
                                 ),
                             hintText:
                                 InheritedL10n.of(context).l10n.inputPlaceholder,
-                            suffixIcon: InheritedChatTheme.of(context)
-                                    .theme
-                                    .showSendButtonAsSuffixIcon
-                                ? Visibility(
-                                    visible: _sendButtonVisible,
-                                    child: SendButton(
-                                      onPressed: _handleSendPressed,
-                                      padding: EdgeInsets.zero,
-                                    ),
-                                  )
-                                : SizedBox.shrink(),
+                            // suffixIconConstraints: const BoxConstraints(
+                            //   maxHeight: 24,
+                            //   maxWidth: 24,
+                            // ),
+                            // suffixIcon: InheritedChatTheme.of(context)
+                            //         .theme
+                            //         .showSendButtonAsSuffixIcon
+                            //     ? Visibility(
+                            //         visible: _sendButtonVisible,
+                            //         child: SendButton(
+                            //           onPressed: _handleSendPressed,
+                            //           // padding: EdgeInsets.zero,
+                            //         ),
+                            //       )
+                            //     : const SizedBox.shrink(),
                           ),
                       focusNode: _inputFocusNode,
                       keyboardType: widget.options.keyboardType,
@@ -258,7 +261,7 @@ class _InputState extends State<Input> {
                           ),
                         ),
                       )
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

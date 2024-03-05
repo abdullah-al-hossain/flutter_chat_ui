@@ -238,6 +238,9 @@ class _ChatPageState extends State<ChatPage> {
           l10n: const ChatL10nEn(
             inputPlaceholder: 'Write a message',
           ),
+          inputOptions: const InputOptions(
+            sendButtonVisibilityMode: SendButtonVisibilityMode.always,
+          ),
           theme: DefaultChatTheme(
             // ignore: use_named_constants
             inputMargin: const EdgeInsets.symmetric(vertical: 0),
@@ -251,8 +254,11 @@ class _ChatPageState extends State<ChatPage> {
             attachmentButtonMargin: const EdgeInsets.only(
               right: 8,
             ),
-            showSendButtonAsSuffixIcon: true,
-            sendButtonIcon: SvgPicture.asset('assets/send.svg'),
+            showSendButtonAsSuffixIcon: false,
+            sendButtonIcon: const Icon(
+              Icons.send,
+              color: SGColors.primaryBlue,
+            ),
             primaryColor: SGColors.primaryBlue,
             inputTextCursorColor: SGColors.blackShade2,
             inputBorderRadius: BorderRadius.zero,
@@ -267,6 +273,8 @@ class _ChatPageState extends State<ChatPage> {
                 SGTextStyles.pro14w400.copyWith(color: Colors.white),
             receivedMessageBodyTextStyle: SGTextStyles.pro14w400,
             inputTextStyle: SGTextStyles.pro14w400,
+            inputTextFieldPadding:
+                const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
             inputBackgroundColor: SGColors.white,
             inputContainerDecoration: const BoxDecoration(
               border: Border(
